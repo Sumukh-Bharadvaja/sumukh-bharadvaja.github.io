@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Netflix Content Dashboard — Details</title>
+    <meta name="description" content="Netflix dashboard — interactive Tableau exploration of titles by genre, country, rating, and trends." />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+    <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml" />
+    <style>
+      /* Page-specific widening for Netflix dashboard only (16:9 target) */
+      body.wide-page .container { width: min(1400px, 96%); }
+      body.wide-page .wiki .title,
+      body.wide-page .wiki .subtitle,
+      body.wide-page .wiki .toc,
+      body.wide-page .wiki .md,
+      body.wide-page .wiki .meta { max-width: 1360px; }
+    </style>
+  </head>
+  <body class="wide-page">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="../../index.html">SUMUKH BHARADVAJA SHIVARAM</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="../../index.html#featured">Academic Projects</a>
+          <a href="../../index.html#experience">Experience</a>
+          <a href="../../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container wiki">
+      <h1 class="title">Netflix Content Dashboard</h1>
+      <p class="subtitle muted">Business Analytics | Tableau dashboard for Netflix library analysis</p>
+      <div class="meta"><span class="tag">Tableau</span><span class="tag">Dashboard</span><span class="tag">BI</span></div>
+
+      <article class="md">
+        <h2 id="overview">Overview</h2>
+        <p>An interactive Tableau dashboard exploring Netflix titles by genre, country, rating, and trends over time. Includes distribution of Movies vs TV Shows, world map of production countries, ratings breakdown, and yearly trends.</p>
+
+        <h2 id="live">Live Dashboard</h2>
+        <p class="muted">The embed below loads from Tableau Public. If it doesn’t render, <a href="https://public.tableau.com/app/profile/sumukh.bharadvaja.shivaram/viz/Netflix-Analysis_17587615983760/Dashboard1" target="_blank" rel="noopener">open it directly</a>.</p>
+        <div style="position:relative;padding-top:56.25%;border:1px solid var(--border);border-radius:.75rem;overflow:hidden;box-shadow:0 8px 22px rgba(15,23,42,0.08);background:#fff">
+          <iframe title="Netflix Dashboard"
+                  src="https://public.tableau.com/views/Netflix-Analysis_17587615983760/Dashboard1?:showVizHome=no&:embed=true"
+                  style="position:absolute;inset:0;width:100%;height:100%;border:0" allowfullscreen></iframe>
+        </div>
+
+        <h2 id="features">Features</h2>
+        <ul>
+          <li>Content distribution: Movies vs TV with counts and percentages.</li>
+          <li>Genres: Treemap of most common genres.</li>
+          <li>Geography: Map of production countries (US, India lead).</li>
+          <li>Ratings: Bar charts for rating categories.</li>
+          <li>Trends: Area charts by release year.</li>
+        </ul>
+
+        <h2 id="calculations">Calculated Fields (Tableau)</h2>
+        <ul>
+          <li>Content distribution: Movies vs TV share.</li>
+          <li>Year‑over‑year change (%).</li>
+          <li>Ratings grouping (e.g., TV‑MA, TV‑14, PG).</li>
+        </ul>
+
+        <h2 id="parameters">Parameters</h2>
+        <ul>
+          <li>Year selector to focus calculations and filters.</li>
+          <li>Genre selector to refine treemap/ratings views.</li>
+        </ul>
+
+        <h2 id="prep">Data Prep (Excel)</h2>
+        <ul>
+          <li>Remove repeated titles (de‑duplicate) using transforms.</li>
+          <li>Split multi‑value fields; trim and normalize text.</li>
+          <li>Derive release year, primary country/genre before import.</li>
+        </ul>
+
+        <h2 id="details">Detailed Explanation</h2>
+        <h3>Dataset & Fields</h3>
+        <p>The cleaned Netflix dataset includes title, type (Movie/TV Show), listed_in (genres), country (possibly multi‑valued), rating (TV‑MA, TV‑14, etc.), and date_added/release_year. Before modeling, multi‑valued fields are normalized to a primary value to enable unambiguous aggregations.</p>
+
+        <h3>Data Preparation Workflow</h3>
+        <ul>
+          <li><strong>De‑duplication:</strong> Remove repeated titles by canonical title + type; keep the most recent date_added when duplicates exist.</li>
+          <li><strong>Normalization:</strong> Split comma‑separated <em>country</em> and <em>listed_in</em>; select primary country/genre for top‑level metrics; retain full lists for drill‑downs.</li>
+          <li><strong>Cleaning:</strong> Trim whitespace, unify casing (Title Case for titles, upper for codes), and standardize missing values to NULL.</li>
+          <li><strong>Derivations:</strong> Extract <em>release_year</em>, compute <em>content_mix</em> (Movie vs TV %), and create <em>rating_bucket</em> (e.g., TV‑MA, TV‑14, PG).</li>
+        </ul>
+
+        <h3>Modeling & Interactions in Tableau</h3>
+        <ul>
+          <li><strong>Parameters:</strong> <em>YearParam</em> (single year focus) and <em>GenreParam</em> (filter treemap/ratings).</li>
+          <li><strong>Calculated fields:</strong> 
+            <ul>
+              <li><em>Movies vs TV Share</em> for the donut chart and KPI tiles.</li>
+              <li><em>YoY Change</em> for trend deltas in tooltips and labels.</li>
+              <li><em>Rating Bucket</em> to consolidate similar rating strings.</li>
+            </ul>
+          </li>
+          <li><strong>Dashboard actions:</strong> Select in one view highlights and filters related views; tooltips show exact counts/percentages.</li>
+        </ul>
+
+        <h3>Design Choices</h3>
+        <ul>
+          <li><strong>Layout:</strong> KPI + composition on the left, exploration center, geography right, trends at bottom for narrative flow.</li>
+          <li><strong>Color:</strong> Netflix‑inspired red palette with accessible contrast; consistent category hues across views.</li>
+          <li><strong>Responsiveness:</strong> Fixed 16:9 embed for crisp rendering on 1920×1080 displays.</li>
+        </ul>
+
+        <h3>Limitations & Next Steps</h3>
+        <ul>
+          <li>Primary country/genre simplifies multi‑country/genre titles; a multi‑select drill‑down can complement this view.</li>
+          <li>Extending with time to completion (from date_added) and availability windows would enrich temporal analysis.</li>
+        </ul>
+
+        <p class="links" style="margin-top:1rem">
+          <a class="btn" href="https://public.tableau.com/app/profile/sumukh.bharadvaja.shivaram/viz/Netflix-Analysis_17587615983760/Dashboard1" target="_blank" rel="noopener">Live</a>
+          <a class="btn glass" href="https://github.com/Sumukh-Bharadvaja/Netflix-Dashboard" target="_blank" rel="noopener">Code</a>
+        </p>
+      </article>
+    </main>
+
+    <footer class="site-footer"><div class="container"><p>© <span id="year"></span> Sumukh Bharadvaja Shivaram. All rights reserved.</p></div></footer>
+    <script src="../../assets/js/main.js"></script>
+  </body>
+  </html>

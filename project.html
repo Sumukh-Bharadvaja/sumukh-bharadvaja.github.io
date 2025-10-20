@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Wiki — Portfolio</title>
+    <meta name="description" content="Project wiki page — README style details." />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html" aria-label="Go to home">SUMUKH BHARADVAJA SHIVARAM</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="index.html#featured">Academic Projects</a>
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container wiki">
+      <h1 id="w-title" class="title">Loading…</h1>
+      <p id="w-subtitle" class="subtitle muted"></p>
+      <div class="meta" id="w-tags"></div>
+
+      <nav class="toc" aria-label="Table of contents">
+        <h4>Contents</h4>
+        <ol id="w-toc"></ol>
+      </nav>
+
+   
+   <article id="w-body" class="md"></article>
+
+      <p class="links" style="margin:1.25rem 0 2rem">
+        <a id="w-live" class="btn" href="#" target="_blank" rel="noopener">Live</a>
+        <a id="w-code" class="btn glass" href="#" target="_blank" rel="noopener">Code</a>
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Sumukh Bharadvaja Shivaram. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+
+    
+    <script src="assets/data/projects.js"></script>
+    <script src="assets/js/project.js"></script>
+  </body>
+  </html>

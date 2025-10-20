@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gastro‑Intestinal Disease Prediction — Details</title>
+    <meta name="description" content="GI disease prediction using deep learning on KVASIR images — models, results, and methodology." />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+    <link rel="icon" href="../../assets/img/GI.png" type="image/png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="../../index.html">SUMUKH BHARADVAJA SHIVARAM</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="../../index.html#about">About</a>
+          <a href="../../index.html#featured">Academic Projects</a>
+          <a href="../../index.html#experience">Experience</a>
+          <a href="../../index.html#skills">Skills</a>
+          <a href="../../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container wiki">
+      <h1 class="title">Gastro‑Intestinal Disease Prediction</h1>
+      <p class="subtitle muted">Data Science | KVASIR dataset • CNNs (VGG/ResNet/DenseNet/EfficientNet)</p>
+      <div class="meta"><span class="tag">Python</span><span class="tag">TensorFlow/Keras</span><span class="tag">CNN</span></div>
+
+      <article class="md">
+        <h2 id="summary">Summary</h2>
+        <p>Built image classifiers on the KVASIR endoscopy dataset to detect 8 GI disease classes. We benchmarked six architectures and report accuracy, precision, recall, and 5‑fold mean cross‑validation accuracy. <strong>DenseNet121</strong> was best with <strong>≈90.1% test accuracy</strong> and balanced precision/recall.</p>
+
+        <h2 id="results">Results (topline)</h2>
+        <table style="width:100%; border-collapse:collapse">
+          <thead>
+            <tr>
+              <th style="text-align:left; border-bottom:1px solid #e5e7eb; padding:.4rem">Model</th>
+              <th style="text-align:left; border-bottom:1px solid #e5e7eb; padding:.4rem">Test Acc.</th>
+              <th style="text-align:left; border-bottom:1px solid #e5e7eb; padding:.4rem">Precision</th>
+              <th style="text-align:left; border-bottom:1px solid #e5e7eb; padding:.4rem">Recall</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:.4rem">DenseNet121</td><td style="padding:.4rem">≈90.1%</td><td style="padding:.4rem">≈90.3%</td><td style="padding:.4rem">≈90.6%</td></tr>
+            <tr><td style="padding:.4rem">EfficientNet</td><td style="padding:.4rem">≈89.1%</td><td style="padding:.4rem">≈89.5%</td><td style="padding:.4rem">≈89.3%</td></tr>
+            <tr><td style="padding:.4rem">ResNet50</td><td style="padding:.4rem">≈87.4%</td><td style="padding:.4rem">≈87.3%</td><td style="padding:.4rem">≈87.3%</td></tr>
+          </tbody>
+        </table>
+
+        
+        <div id="gi-readme" class="md"></div>
+
+        
+        <p class="links" style="margin-top:1rem">
+          <a class="btn" href="https://github.com/Sumukh-Bharadvaja/Gastro-Intestinal-Disease-Prediction-Using-Deep-Learning" target="_blank" rel="noopener">Code</a>
+        </p>
+      </article>
+    </main>
+    <footer class="site-footer"><div class="container"><p>© <span id="year"></span> Sumukh Bharadvaja Shivaram. All rights reserved.</p></div></footer>
+    <script src="../../assets/js/main.js"></script>
+    <script>
+      fetch('https://api.github.com/repos/Sumukh-Bharadvaja/Gastro-Intestinal-Disease-Prediction-Using-Deep-Learning/readme', { headers: { 'Accept': 'application/vnd.github.v3.html' } })
+        .then(r => r.ok ? r.text() : '')
+        .then(html => { if (html) document.getElementById('gi-readme').innerHTML = html; })
+        .catch(() => {});
+    </script>
+  </body>
+</html>

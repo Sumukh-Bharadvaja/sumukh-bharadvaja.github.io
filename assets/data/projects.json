@@ -1,0 +1,58 @@
+{
+  "projects": [
+    {
+      "slug": "ba-amazon-analysis",
+      "title": "Amazon Analysis — E‑commerce Insights",
+      "subtitle": "Business Analytics | Performance drivers and customer patterns",
+      "tags": ["Business Analytics", "SQL", "Python"],
+      "live": "https://github.com/Sumukh-Bharadvaja/AmazonAnalysis",
+      "code": "https://github.com/Sumukh-Bharadvaja/AmazonAnalysis",
+      "bodyHtml": "\n        <h2 id=\"overview\">Overview</h2>\n        <p>Analyzed Amazon data to uncover revenue and margin drivers, customer behavior patterns, and product opportunities. Built a clear narrative of seasonality, cohort retention, and pricing impacts to guide decision‑making.</p>\n        <h2 id=\"data\">Data</h2>\n        <ul>\n          <li>Orders, items, customers, and product metadata.</li>\n          <li>Derived features for cohorts, repeat behavior, and contribution margins.</li>\n        </ul>\n        <h2 id=\"methods\">Methods</h2>\n        <ul>\n          <li>SQL for transformation and KPIs; Python for exploratory analysis.</li>\n          <li>Time‑series decomposition and cohort analysis for retention and LTV.</li>\n          <li>Segmentation to highlight high‑value products and customers.</li>\n        </ul>\n        <h2 id=\"insights\">Insights</h2>\n        <ul>\n          <li>Identified SKUs and segments with outsized contribution to revenue.</li>\n          <li>Surfaced seasonality and promo impacts guiding inventory and pricing.</li>\n        </ul>\n        <h2 id=\"run\">How to Run</h2>\n        <ol>\n          <li>Clone the repo and follow setup instructions in README.</li>\n          <li>Load sample data and execute notebooks/SQL scripts.</li>\n        </ol>\n      "
+    },
+    {
+      "slug": "data-scientist-pavement-rag",
+      "title": "Pavement NDE QA System — Retrieval‑Augmented Generation",
+      "subtitle": "Data Scientist | FAISS, Transformers, Evaluation",
+      "tags": ["RAG", "FAISS", "Transformers", "Python"],
+      "live": "https://github.com/Sumukh-Bharadvaja/Pavement_QA_System_RAG",
+      "code": "https://github.com/Sumukh-Bharadvaja/Pavement_QA_System_RAG",
+      "bodyHtml": "\n        <h2 id=\"overview\">Overview</h2>\n        <p>Engineered a Retrieval‑Augmented Generation system to answer questions about Non‑Destructive Evaluation (NDE) technologies. The solution embeds and indexes a corpus of standards and technical PDFs, retrieves the most relevant chunks using FAISS, and generates grounded answers with citations using transformer LMs.</p>\n        <h2 id=\"dataset\">Corpus</h2>\n        <ul>\n          <li>20+ documents spanning 32 NDE technologies (standards, reports, guidance).</li>\n          <li>Pre‑processed with PDF text extraction, section detection, and chunking.</li>\n        </ul>\n        <h2 id=\"methods\">Methods</h2>\n        <ul>\n          <li>Vector index: FAISS (IVF/Flat) with sentence embeddings.</li>\n          <li>LMs: BERT/GPT‑2/Llama 3 variants evaluated for answer quality and latency.</li>\n          <li>Grounding: top‑k retrieval with source citations; heuristic reranking.</li>\n        </ul>\n        <h2 id=\"results\">Results</h2>\n        <ul>\n          <li>Fast, source‑grounded answers with traceable citations.</li>\n          <li>Reduced time‑to‑insight for engineers; improved knowledge discoverability.</li>\n        </ul>\n        <h2 id=\"run\">How to Run</h2>\n        <ol>\n          <li>Clone repo and install dependencies (Python 3.10+).</li>\n          <li>Prepare document directory and run <code>ingest.py</code> to build FAISS index.</li>\n          <li>Start <code>app.py</code> and query via UI or CLI.</li>\n        </ol>\n        <h2 id=\"links\">Links</h2>\n        <ul>\n          <li><a href=\"https://github.com/Sumukh-Bharadvaja/Pavement_QA_System_RAG\" target=\"_blank\" rel=\"noopener\">Repository</a></li>\n        </ul>\n      "
+    },
+    {
+      "slug": "data-analyst-us-census-sql",
+      "title": "U.S. Census Data Analysis — SQL EDA",
+      "subtitle": "Data Analyst | Joins, Window Functions, Reusable Views",
+      "tags": ["SQL", "EDA", "Analytics"],
+      "live": "https://github.com/Sumukh-Bharadvaja/US_Census_Data_Analysis",
+      "code": "https://github.com/Sumukh-Bharadvaja/US_Census_Data_Analysis",
+      "bodyHtml": "\n        <h2 id=\"overview\">Overview</h2>\n        <p>Exploratory data analysis of U.S. Census metrics using SQL to derive consistent, comparable insights across demographics, unemployment, poverty, and income distributions.</p>\n        <h2 id=\"modeling\">Modeling & Queries</h2>\n        <ul>\n          <li>Dimensional joins and CTE‑based pipelines to standardize metrics.</li>\n          <li>Window functions to compute moving averages and ranking.</li>\n          <li>Parameterized filters and views to support repeatable analysis.</li>\n        </ul>\n        <h2 id=\"insights\">Insights</h2>\n        <ul>\n          <li>Regional disparities surfaced with robust comparisons over time.</li>\n          <li>Clear narrative summaries to guide follow‑up analysis and visualization.</li>\n        </ul>\n        <h2 id=\"run\">How to Run</h2>\n        <ol>\n          <li>Load raw tables (CSV/DB) and execute provided SQL scripts in order.</li>\n          <li>Query final views for charts or export to BI tools.</li>\n        </ol>\n      "
+    },
+    {
+      "slug": "business-analyst-physician-allocation",
+      "title": "Physician Allocation Optimization — Operations Analytics",
+      "subtitle": "Business Analyst | Capacity Planning, Throughput, Scenarios",
+      "tags": ["Operations", "Analytics", "Optimization"],
+      "live": "https://github.com/Sumukh-Bharadvaja/Appointment_Date_Healthcare",
+      "code": "https://github.com/Sumukh-Bharadvaja/Appointment_Date_Healthcare",
+      "bodyHtml": "\n        <h2 id=\"overview\">Overview</h2>\n        <p>Balanced clinic capacity and demand by analyzing arrivals, no‑shows, and cycle times, then designing staffing scenarios aligned to throughput and SLA targets.</p>\n        <h2 id=\"data\">Data</h2>\n        <ul>\n          <li>Operational logs over ~6 months with schedule/visit metadata.</li>\n          <li>Derived features for load, utilization, and wait time distributions.</li>\n        </ul>\n        <h2 id=\"approach\">Approach</h2>\n        <ul>\n          <li>Time‑series profiling; bottleneck identification and what‑if scenarios.</li>\n          <li>Actionable allocation plan with quantified tradeoffs.</li>\n        </ul>\n        <h2 id=\"outcomes\">Outcomes</h2>\n        <ul>\n          <li>Improved utilization and reduced average wait times.</li>\n        </ul>\n      "
+    },
+    {
+      "slug": "bi-engineer-world-energy",
+      "title": "World Energy Consumption — Tableau Dashboard",
+      "subtitle": "Business Intelligence | KPIs, Drill‑downs, Storytelling",
+      "tags": ["Tableau", "Dashboard", "BI"],
+      "live": "https://github.com/Sumukh-Bharadvaja/World-Energy-Consumption",
+      "code": "https://github.com/Sumukh-Bharadvaja/World-Energy-Consumption",
+      "bodyHtml": "\n        <h2 id=\"overview\">Overview</h2>\n        <p>Interactive dashboard for exploring decades of global energy consumption, enabling comparison by country, source, and time with performant extracts and clear annotations.</p>\n        <h2 id=\"features\">Features</h2>\n        <ul>\n          <li>KPIs and trend lines for high‑level monitoring.</li>\n          <li>Drill‑downs by country and energy source with slicers.</li>\n          <li>Notes and context for data storytelling.</li>\n        </ul>\n        <h2 id=\"tech\">Tech</h2>\n        <ul>\n          <li>Tableau Desktop/Server; extract optimization; calculated fields.</li>\n        </ul>\n      "
+    },
+    {
+      "slug": "financial-analyst-kpi-dashboard",
+      "title": "Financial KPI Dashboard — Executive Reporting",
+      "subtitle": "Financial Analyst | Excel/Power BI",
+      "tags": ["Finance", "KPI", "Dashboard"],
+      "live": "",
+      "code": "",
+      "bodyHtml": "\n        <h2 id=\"overview\">Overview</h2>\n        <p>Placeholder project. Replace with your preferred finance project and update the links. This page demonstrates the README‑style presentation for a Financial Analyst showcase.</p>\n        <h2 id=\"kpis\">KPIs</h2>\n        <ul>\n          <li>Revenue, margin, expenses, cash flow; YoY/variance analysis.</li>\n          <li>Dimensions for product, segment, and region.</li>\n        </ul>\n        <h2 id=\"process\">Process</h2>\n        <ul>\n          <li>Data modeling in Excel/Power BI with refresh automation.</li>\n          <li>Governance and definitions for consistent reporting.</li>\n        </ul>\n      "
+    }
+  ]
+}

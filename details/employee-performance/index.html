@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Employee Performance Analysis — Details</title>
+    <meta name="description" content="Employee Performance Analysis — EDA, modeling, and key drivers." />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+    <link rel="icon" href="../../assets/img/EPA.png" type="image/png" />
+    <style>
+      
+      .gallery { grid-template-columns: repeat(2, 1fr) !important; gap: 1rem; }
+      .gallery img { height: 380px !important; object-fit: cover; }
+      @media (max-width: 1100px) { .gallery img { height: 320px !important; } }
+      @media (max-width: 900px) { .gallery { grid-template-columns: 1fr !important; } .gallery img { height: auto !important; } }
+
+      
+      body.ep-wide .container { width: min(1320px, 95%); }
+      body.ep-wide .wiki .title,
+      body.ep-wide .wiki .subtitle,
+      body.ep-wide .wiki .toc,
+      body.ep-wide .wiki .md,
+      body.ep-wide .wiki .meta { max-width: 1240px; }
+    </style>
+  </head>
+  <body class="ep-wide">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="../../index.html">SUMUKH BHARADVAJA SHIVARAM</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="../../index.html#about">About</a>
+          <a href="../../index.html#featured">Academic Projects</a>
+          <a href="../../index.html#experience">Experience</a>
+          <a href="../../index.html#skills">Skills</a>
+          <a href="../../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container wiki">
+      <h1 class="title">Employee Performance Analysis</h1>
+      <p class="subtitle muted">Data Analytics | EDA, classification, and drivers of performance</p>
+      <div class="meta"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Seaborn</span><span class="tag">Scikit‑learn</span></div>
+
+      <article class="md">
+        <h2 id="overview">Overview</h2>
+        <p>Analyzed the INX Future Inc. employee dataset (≈1200 rows × 28 columns) to identify factors that influence the ordinal <em>PerformanceRating</em> and to build a model that predicts ratings for hiring/support decisions.</p>
+
+        <h2 id="data">Data</h2>
+        <ul>
+          <li>Features: mix of numerical, ordinal, and categorical (e.g., EmpEducationLevel, EmpWorkLifeBalance, EmpDepartment, JobRole).</li>
+          <li>Preprocessing: manual/frequency encoding for categoricals; standardization for numeric where relevant.</li>
+          <li>EDA: univariate, bivariate, and multivariate analysis per department; correlation profiling.</li>
+        </ul>
+
+        <h2 id="methods">Methods</h2>
+        <ul>
+          <li>Models: Support Vector Classifier, Random Forest, Artificial Neural Network (MLP).</li>
+          <li>Validation: held‑out split with accuracy as the primary metric for the ordinal classification target.</li>
+          <li>Feature importance and partial insights via tree‑based models and correlation analysis.</li>
+        </ul>
+
+        <h2 id="performance">Performance</h2>
+        <table style="width:100%; border-collapse:collapse">
+          <thead>
+            <tr>
+              <th style="text-align:left; border-bottom:1px solid #e5e7eb; padding:.4rem">Model</th>
+              <th style="text-align:left; border-bottom:1px solid #e5e7eb; padding:.4rem">Accuracy</th>
+              <th style="text-align:left; border-bottom:1px solid #e5e7eb; padding:.4rem">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:.4rem">ANN (MLP)</td><td style="padding:.4rem">≈95.8%</td><td style="padding:.4rem">Best performing model reported in notebooks/summary</td></tr>
+            <tr><td style="padding:.4rem">Random Forest</td><td style="padding:.4rem">—</td><td style="padding:.4rem">Used for feature importance and baselines</td></tr>
+            <tr><td style="padding:.4rem">SVC</td><td style="padding:.4rem">—</td><td style="padding:.4rem">Baseline classifier</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="insights">Key Insights</h2>
+        <ul>
+          <li>Positive correlation with rating: EmpEnvironmentSatisfaction, EmpLastSalaryHikePercent, EmpWorkLifeBalance.</li>
+          <li>Distinct rating distributions across departments and job roles.</li>
+          <li>Encoding categorical predictors was critical for downstream modeling.</li>
+        </ul>
+
+        <h2 id="readme">README</h2>
+        <div id="readme" class="md">
+          <p class="muted">Full write‑up and notebooks are on GitHub. See highlights and visuals below.</p>
+          <p><a class="btn" href="https://github.com/Sumukh-Bharadvaja/Employee-Performance-Analysis" target="_blank" rel="noopener">View on GitHub</a></p>
+        </div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Business Case:</h3><a id="user-content-business-case" class="anchor" aria-label="Permalink: Business Case:" href="#business-case"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">We must analyze the feautres present in the dataset, establish a correlation between the feautres and employee performance, and forecast the employee performance rating based on the feautres.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">The Goal and Insights of the project are as follows:</h3><a id="user-content-the-goal-and-insights-of-the-project-are-as-follows" class="anchor" aria-label="Permalink: The Goal and Insights of the project are as follows:" href="#the-goal-and-insights-of-the-project-are-as-follows"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h4 class="heading-element" dir="auto">Department wise performances</h4><a id="user-content-department-wise-performances" class="anchor" aria-label="Permalink: Department wise performances" href="#department-wise-performances"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Top 3 Important Factors effecting employee performance
+A trained model which can predict the employee performance based on factors as inputs. This will be used to hire employees
+Recommendations to improve the employee performance based on insights from analysis
+With 1200 rows, the provided Employee dataset is large. There are 28 columns of features in the data. The dataset is 1200x28 in size. 19 of the 28 traits, which are divided into qualitative and quantitative categories, are quantitative (11 columns consists numeric data &amp; 8 columns consists ordinal data) and there are 8 qualitative qualities. EmpNumber consists of alphanumeric data (distinct values), which is not a feature that is important for performance evaluation.</p>
+<p dir="auto">Correlation between characteristics and Performance Rating is one of the key aspects of the data that can be obtained via correlation. A statistical measure known as correlation expresses how linearly related two variables are to one another. The project's analysis went through stages of univariate, bivariate, and multivariate analysis, correlation analysis, and analysis by each department to meet the project's objective.</p>
+<p dir="auto">Categorical and numerical data make up the dataset. Since the target variable only contains ordinal values, the issue is one of classification. The Support Vector Classifier, Random Forest Classifier, and Artificial Neural Network [Multilayer Percepton] are the different machine learning models employed in this project. Artificial neural network [Multilayer percepton] predicts with a greater accuracy of 95.80% from the models mentioned above.</p>
+<p dir="auto">Finding the significant factor influencing the performance rating is one of the project's key objectives. The machine learning model feature importance technique was used to forecast the significant characteristics. Because most machine learning techniques rely on numerical approaches, which do not support strings, the major methodology utilized in preprocessing data uses the Mannual &amp; Frequency encoding method to turn string-categorical data into numerical data. The machine learning model and visualization approaches were used to carry out the project as a whole and meet its objectives.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">1. Requirement</h3><a id="user-content-1-requirement" class="anchor" aria-label="Permalink: 1. Requirement" href="#1-requirement"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">For this initiative, the IABAC served as the source of the data that was provided. Based on information from INX Future Inc. (referred as INX ). With more than 15 years of experience operating internationally, it is one of the top providers of automation and data analytics solutions. Over the last five years, INX has continuously ranked among the top 20 best employers. The information is not from the actual company. The entire project was completed using the Python platform and a Jupyter notebook.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">2. Analysis</h3><a id="user-content-2-analysis" class="anchor" aria-label="Permalink: 2. Analysis" href="#2-analysis"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">By summarizing the features found in the data, analysis of the data was conducted. In the analysis, the traits are more important. The characteristics reveal how the dependent and independent variables are related. Early on in our study, Pandas also helped to define the datasets and provide answers to the questions below. The dataset's data are broken down into categories and numerical data.</p>
+<div class="markdown-heading" dir="auto"><h4 class="heading-element" dir="auto">Categorical Features</h4><a id="user-content-categorical-features" class="anchor" aria-label="Permalink: Categorical Features" href="#categorical-features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">EmpNumber
+Gender
+EducationBackground
+MaritalStatus
+EmpDepartment
+EmpJobRole
+BusinessTravelFrequency
+OverTime
+Attrition</p>
+<div class="markdown-heading" dir="auto"><h4 class="heading-element" dir="auto">Numerical Features</h4><a id="user-content-numerical-features" class="anchor" aria-label="Permalink: Numerical Features" href="#numerical-features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Age
+DistanceFromHome
+EmpHourlyRate
+NumCompaniesWorked
+EmpLastSalaryHikePercent
+TotalWorkExperienceInYears
+TrainingTimesLastYear
+ExperienceYearsAtThisCompany
+ExperienceYearsInCurrentRole
+YearsSinceLastPromotion
+YearsWithCurrManager</p>
+<div class="markdown-heading" dir="auto"><h4 class="heading-element" dir="auto">Ordinal Features</h4><a id="user-content-ordinal-features" class="anchor" aria-label="Permalink: Ordinal Features" href="#ordinal-features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">EmpEducationLevel
+EmpEnvironmentSatisfaction
+EmpJobInvolvement
+EmpJobLevel
+EmpJobSatisfaction
+EmpRelationshipSatisfaction
+EmpWorkLifeBalance
+PerformanceRating</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">3.Univariate, Bivariate &amp; Multivariate Analysis</h3><a id="user-content-3univariate-bivariate--multivariate-analysis" class="anchor" aria-label="Permalink: 3.Univariate, Bivariate &amp; Multivariate Analysis" href="#3univariate-bivariate--multivariate-analysis"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Library Used: Matplotlib &amp; Seaborn
+Plots Used: Histplot, Lineplot, CountPlot, Barplot
+Tip: All Observation or insights written below the plots
+Univariate Analysis: In univariate analysis we get the unique labels of categorical features, as well as get the range &amp; density of numbers.</p>
+<p dir="auto">Bivariate Analysis: In bivariate analysis we check the feature relationship with target veriable.</p>
+<p dir="auto">Multivariate Analysis: In multivariate Analysis check the relationship between two veriable with respect to the target veriable.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">CONCLUSION</h3><a id="user-content-conclusion" class="anchor" aria-label="Permalink: CONCLUSION" href="#conclusion"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">There are some features are positively correlated with performance rating( Target variable) [Emp Environment Satisfaction,Emp Last Salary Hike Percent,Emp Work Life Balance]</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">4.Exploratory Data Analysis</h3><a id="user-content-4exploratory-data-analysis" class="anchor" aria-label="Permalink: 4.Exploratory Data Analysis" href="#4exploratory-data-analysis"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Basic Check &amp; Statistical Measures
+Their is no constant column is present in Numerical as well as categoriacl data.
+Distribution of Continuous Features:
+Having a general understanding of how the features are distributed among one another would typically be one of the first few steps in exploring the data. We will use the well-known distplot function from the Seaborn plotting package to do this. Both numerical aspects have produced the distribution. It will convey an overall picture of the volume and preponderance of data present at various levels.</p>
+<p dir="auto">The majority of the employees are between the ages of 30 and 40 in the age range of 18 to 60.
+Employees have worked for up to eight different companies, with the majority of them having worked for just two before coming to work for us.
+The bulk of the workers in this company earn an hourly wage between 65 and 95.
+In general, most employees stay with this company for up to five years. In this company, the majority of employees receive wage increases of 11% to 15%.
+Check Skewness and Kurtosis of Numerical Features
+Checking weather the data is Normally distributed or Not with Skewness and Kurtosis,</p>
+<p dir="auto">YearsSinceLastPromotion, This column is skewed
+skewness for YearsSinceLastPromotion: 1.9724620367914252
+kurtosis for YearsSinceLastPromotion: 3.5193552691799805
+Distribution of Mean of Data
+Distribution of mean close to guassian distribution with mean value 9.5
+we can say that around 80% feature mean lies between 8.5 to 10.5
+Distribution of Standard Deviation of Data
+Distribution of standard deviation of data also look like guassian distribution around 30% of feature standard deviation around the range of 3 3 to 20 and remaining 70% feature standard deviation in between 0 to 2</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">5.Data Pre-Processing</h3><a id="user-content-5data-pre-processing" class="anchor" aria-label="Permalink: 5.Data Pre-Processing" href="#5data-pre-processing"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">1.Check Missing Value: Their is no missing value in data</p>
+<p dir="auto">2.Categorical Data Conversion: Handel categorical data with the help of frequency and mannual encoding, because feature is contain lot's of labels</p>
+<p dir="auto">Mannual Encoding: Mannual encoding is a best techinque to handel categorical feature with the help of map function, map the labels based on frequency.</p>
+<p dir="auto">Frequency Encoding: Frequency encoding is an encoding technique to transform an original categorical variable to a numerical variable by considering the frequency distribution of the data getting value counts.</p>
+<p dir="auto">3.Outlier Handling Some features are contain outliers so we are impute this outlier with the help of IQR because in all features data is not normally distributed</p>
+<p dir="auto">4.Feature Transformation: In YearsSinceLastPromotion some skewed &amp; kurtosis is present, so we are use Square Root Transformation techinque</p>
+<p dir="auto">Square root transformation: Square root transformation is one of the many types of standard transformations.This transformation is used for count data (data that follow a Poisson distribution) or small whole numbers. Each data point is replaced by its square root. Negative data is converted to positive by adding a constant, and then transformed.
+Q-Q Plot: Q–Q plot is a probability plot, a graphical method for comparing two probability distributions by plotting their quantiles against each other.
+5.Scaling The Data: scaling the data with the help of Standard scalar</p>
+<p dir="auto">Standard Scaling: Standardization is the process of scaling the feature, it assumes the feature follow normal distribution and scale the feature between mean and standard deviation, here mean is 0 and standard deviation is always 1.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">6.Feature Selection</h3><a id="user-content-6feature-selection" class="anchor" aria-label="Permalink: 6.Feature Selection" href="#6feature-selection"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">1.Drop unique and constant feature: Dropping employee number because this is a constant column as well as drop Years Since Last Promotion because we create a new feaure using square root transformation</p>
+<p dir="auto">2.Checking Correlation: Checking correlation with the help of heat map, and get the their is no highly correlated feature is present.</p>
+<p dir="auto">Heatmap: A heatmap is a graphical representation of data that uses a system of color-coding to represent different values.
+3.Check Duplicates: In this data Their is no dupicates is present.</p>
+<p dir="auto">4.PCA: Use pca to reduce the dimension of data, Data is contain total 27 feature after dropping unique and constant column,from PCA it shows the 25 feature has less varaince loss, so we are going to select 25 feature.</p>
+<p dir="auto">Principal component analysis (PCA) is a popular technique for analyzing large datasets containing a high number of dimensions/features per observation, increasing the interpretability of data while preserving the maximum amount of information, and enabling the visualization of multidimensional data. Formally, PCA is a statistical technique for reducing the dimensionality of a dataset.
+5.Saving Pre-Process Data: save the all preprocess data in new file and add target feature to it.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">7.Machine learning Model Creation &amp; Evaluation</h3><a id="user-content-7machine-learning-model-creation--evaluation" class="anchor" aria-label="Permalink: 7.Machine learning Model Creation &amp; Evaluation" href="#7machine-learning-model-creation--evaluation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">1.Define Dependant and Independant Features:</p>
+<p dir="auto">2.Balancing the data: The data is imbalance, so we need to balance the data with the help of SMOTE</p>
+<p dir="auto">SMOTE: SMOTE (synthetic minority oversampling technique) is one of the most commonly used oversampling methods to solve the imbalance problem. It aims to balance class distribution by randomly increasing minority class examples by replicating them. SMOTE synthesises new minority instances between existing minority instances.
+3.Splitting Training And Testing Data: 80% data use for training &amp; 20% data used for testing</p>
+<p dir="auto">Algorithm:
+AIM: Create a sweet spot model (Low bias, Low variance)</p>
+<p dir="auto">HERE WE WILL BE EXPERIMENTING WITH THREE ALGORITHM</p>
+<p dir="auto">Support Vector Machine
+Random Forest
+Artificial Neural Network [MLP Classifier]
+Support vector machine well perform on training data with accuracy 96.61% but the test score is 94.66 after applying Hyperparameter tunning score is 98.28 means model is overfit.
+Random forest very well perform in training data with 100% accuracy but in testing 95.61% after doing hyperparameter tunning testing score is decreases.
+Artifical neural network[Multilayer percepton] perform very well on training data with 100% accuracy and testing score is 96.95%.
+So we are select Artifical neuranl network [Multilayer percepton] model.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Goal 1: Department Wise Performances</h3><a id="user-content-goal-1-department-wise-performances" class="anchor" aria-label="Permalink: Goal 1: Department Wise Performances" href="#goal-1-department-wise-performances"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">PLOT USED</p>
+<p dir="auto">Violinplot: It shows the distribution of quantitative data across several levels of one (or more) categorical variables such that those distributions can be compared.
+CountPlot: countplot is used to Show the counts of observations in each categorical bin using bars.
+Sales: The Performace rating level 3 is more in the sales department. The male performance rating the little bit higher compared to female.</p>
+<p dir="auto">Human Resources: The majority of the employees lying under the level 3 performance . The older people are performing low in this department. The female employees in HR department doing really well in their performance.</p>
+<p dir="auto">Development: The maximum number of employees are level 3 performers. Employees of all age are performing at the level of 3 only. The gender-based performance is nearly same for both.</p>
+<p dir="auto">Data Science: The highest average of level 3 performance is in data science department. Data science is the only department where less number of level 2 performers. The overall performance is higher compared to all departments. Male employees are doing good in this department.</p>
+<p dir="auto">Research &amp; Development: The age factor is not deviating from the level of performance here where different employees with different age are there in every level of performance. The R&amp;D has the good female employees in their performance.</p>
+<p dir="auto">Finance: The finance department performance is exponentially decreasing when age increases. The male employees are doing good. The experience factor is inversely relating to the performance level.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Goal 2: Top 3 Important Factors effecting employee performance</h3><a id="user-content-goal-2-top-3-important-factors-effecting-employee-performance" class="anchor" aria-label="Permalink: Goal 2: Top 3 Important Factors effecting employee performance" href="#goal-2-top-3-important-factors-effecting-employee-performance"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The top three important features affecting the performance rating are ordered with their importance level as follows,</p>
+<p dir="auto">Employment Environment Satisfaction
+Employee Salary Hike Percentage
+Experience Years In CurrentRole
+Employee Enviroment satisfaction: Maximum Number of Employees Performance Rating belongs to EmpEnvironmentSatisfaction Level 3 &amp; Level 4, It contains 367 &amp; 361.</p>
+<p dir="auto">Employee last salary hike percent: More Number of Employees whose salary hike percentage belongs to 11-19 % are getting 2 &amp; 3 performance rating Maximum time. as well asEmployees whose salary hike percentage is in between 20-22%, There performance rating is 4.</p>
+<p dir="auto">Employee work life balance: In EmpWorkLifeBalance, level 3 is showing high Performance Rating of employees</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Goal 3: A Trained model which can predict the employee performance</h3><a id="user-content-goal-3-a-trained-model-which-can-predict-the-employee-performance" class="anchor" aria-label="Permalink: Goal 3: A Trained model which can predict the employee performance" href="#goal-3-a-trained-model-which-can-predict-the-employee-performance"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The trained model is created using the machine learning algorithm as follows with the accuracy score,</p>
+<ul dir="auto">
+<li>Support Vector Classifier: 98.28% accuracy</li>
+<li>Random Forest classifier: 95.61% accuracy</li>
+<li>Artifical Neural Network [Multilayer percepton]: 96.95%</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Goal 4: Recommendations to improve the employee performance</h3><a id="user-content-goal-4-recommendations-to-improve-the-employee-performance" class="anchor" aria-label="Permalink: Goal 4: Recommendations to improve the employee performance" href="#goal-4-recommendations-to-improve-the-employee-performance"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">The overall employee performance can be achieved by employee environment satisfaction. The company needs to focus more on the employee environment satisfaction.
+The salary hike will give the boost to the employees to perform well.
+Promote the employee ervery 6th month
+Improve Employee's work-life balance this affects the performance rating.
+While recruiting for HR, consider the female candidates where they perform well compared to male.
+The development and sales department is having an overall higher performance comparing to rest of the departments. While some of the employees who gives feedback like Low &amp; Medium from Job Satisfaction &amp; Relationship Satisfaction feature, such employees gives Excellent performance more in number. So company should focus on them.</p>
+</article></div>
+        <h2 id="visuals">Visuals</h2>
+        <p class="muted">Click any visual to expand.</p>
+        <div class="gallery" aria-label="Employee Performance visuals">
+          <!-- 2x2 grid: use the expanded visuals as thumbnails so they appear larger in-page, but still open in the lightbox on click -->
+          <figure>
+            <a href="images/nb_plot_18.png"><img src="images/nb_plot_18.png" alt="Violin plot of performance by department" loading="lazy" /></a>
+            <figcaption class="muted">Violin plot: performance rating distributions across departments.</figcaption>
+          </figure>
+          <figure>
+            <a href="images/nb_plot_14.png"><img src="images/nb_plot_14.png" alt="Feature importance (Random Forest)" loading="lazy" /></a>
+            <figcaption class="muted">Feature importance: top predictors influencing performance ratings.</figcaption>
+          </figure>
+          <figure>
+            <a href="images/nb_plot_12.png"><img src="images/nb_plot_12.png" alt="Correlation heatmap of selected features" loading="lazy" /></a>
+            <figcaption class="muted">Correlation heatmap: relationships between numeric features.</figcaption>
+          </figure>
+          <figure>
+            <a href="images/nb_plot_05.png"><img src="images/nb_plot_05.png" alt="Model performance metrics / confusion matrix" loading="lazy" /></a>
+            <figcaption class="muted">Model diagnostics: confusion matrix and performance metrics.</figcaption>
+          </figure>
+        </div>
+
+        <p class="links" style="margin-top:1rem">
+          <a class="btn" href="https://github.com/Sumukh-Bharadvaja/Employee-Performance-Analysis" target="_blank" rel="noopener noreferrer">Code</a>
+        </p>
+      </article>
+    </main>
+    <footer class="site-footer"><div class="container"><p>© <span id="year"></span> Sumukh Bharadvaja Shivaram. All rights reserved.</p></div></footer>
+    <script src="../../assets/js/main.js"></script>
+  </body>
+</html>

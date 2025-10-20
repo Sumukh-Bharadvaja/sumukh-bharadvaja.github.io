@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Airfare Price Prediction — Details</title>
+    <meta name="description" content="Dynamic pricing analysis and machine learning for flight fare prediction." />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+    <link rel="icon" href="../../assets/img/airfare_price.jpg" type="image/jpeg" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="../../index.html">SUMUKH BHARADVAJA SHIVARAM</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="../../index.html#about">About</a>
+          <a href="../../index.html#featured">Academic Projects</a>
+          <a href="../../index.html#experience">Experience</a>
+          <a href="../../index.html#skills">Skills</a>
+          <a href="../../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container wiki">
+      <h1 class="title">Airfare Price Prediction</h1>
+      <p class="subtitle muted">Data Science | Regression modeling for airline fare forecasting</p>
+      <div class="meta"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Spark</span><span class="tag">Databricks</span><span class="tag">XGBoost</span><span class="tag">Scikit‑learn</span></div>
+
+      <article class="md">
+        <h2 id="overview">Overview</h2>
+        <p>Analyzed airline dynamic pricing across India using a large dataset (≈400k rows) to model fare as a function of route, stops, days‑to‑departure, airline, cabin class, and time‑of‑day effects. Compared linear and tree‑based regressors, selecting XGBoost as the best trade‑off of accuracy and robustness.</p>
+
+        <h2 id="platform">Platform & Data</h2>
+        <ul>
+          <li>Databricks Lakehouse used for data storage and analytics; curated Delta tables for reproducible pipelines.</li>
+          <li>Apache Spark (PySpark) for ETL, feature engineering (time windows, encoding), and scalable joins/aggregations.</li>
+          <li>Modeling in Python with scikit‑learn/XGBoost; training/validation artifacts stored back to Databricks.</li>
+        </ul>
+
+        <h2 id="results">Model Comparison</h2>
+        <table style="width:100%; border-collapse:collapse">
+          <thead>
+            <tr>
+              <th style="text-align:left; border-bottom:1px solid #e5e7eb; padding:.4rem">Model</th>
+              <th style="text-align:left; border-bottom:1px solid #e5e7eb; padding:.4rem">R²</th>
+              <th style="text-align:left; border-bottom:1px solid #e5e7eb; padding:.4rem">RMSE</th>
+              <th style="text-align:left; border-bottom:1px solid #e5e7eb; padding:.4rem">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:.4rem">Linear Regression</td><td style="padding:.4rem">≈0.20</td><td style="padding:.4rem">≈15000</td><td style="padding:.4rem">Underfits; high variance</td></tr>
+            <tr><td style="padding:.4rem">Decision Tree</td><td style="padding:.4rem">≈0.87</td><td style="padding:.4rem">≈7068</td><td style="padding:.4rem">Good fit; risk of overfit</td></tr>
+            <tr><td style="padding:.4rem">Random Forest</td><td style="padding:.4rem">≈0.87</td><td style="padding:.4rem">≈7068</td><td style="padding:.4rem">Robust ensemble baseline</td></tr>
+            <tr><td style="padding:.4rem">Gradient Boosting</td><td style="padding:.4rem">≈0.89</td><td style="padding:.4rem">≈6500</td><td style="padding:.4rem">Improved error</td></tr>
+            <tr><td style="padding:.4rem">XGBoost</td><td style="padding:.4rem">≈0.91</td><td style="padding:.4rem">≈6500–7100</td><td style="padding:.4rem">Best performing model</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="readme">README</h2>
+<div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Dynamic Pricing of Flight Tickets Analysis</h1><a id="user-content-dynamic-pricing-of-flight-tickets-analysis" class="anchor" aria-label="Permalink: Dynamic Pricing of Flight Tickets Analysis" href="#dynamic-pricing-of-flight-tickets-analysis"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Project Overview</h2><a id="user-content-project-overview" class="anchor" aria-label="Permalink: Project Overview" href="#project-overview"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">This project focuses on the dynamic pricing strategies employed by commercial airlines such as Qatar Airways, Etihad, and AirAsia. Utilizing big data technologies, we aim to understand and predict fare changes influenced by market demand and historical pricing data. The project utilizes Decision Trees and Random Forest algorithms to identify key factors affecting price variations and to validate the accuracy of our predictive models.</p>
+<p dir="auto"><a href="https://community.cloud.databricks.com/?o=6598817592549858#notebook/3261380534034106" rel="nofollow">View Notebook!</a></p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Objectives</h2><a id="user-content-objectives" class="anchor" aria-label="Permalink: Objectives" href="#objectives"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><strong>Data Analysis</strong>: Employ advanced data analytics techniques on datasets comprising over 400,000 records.</li>
+<li><strong>Model Development</strong>: Use machine learning models like Decision Trees, Random Forest, Gradient Boosting, and XGBoost to predict flight prices.</li>
+<li><strong>Feature Importance</strong>: Explore which features most significantly impact flight prices using model insights.</li>
+<li><strong>Performance Evaluation</strong>: Assess model performance using metrics such as RMSE, MAE, and R².</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Data</h2><a id="user-content-data" class="anchor" aria-label="Permalink: Data" href="#data"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Data was sourced from EaseMyTrip and includes 400k+ records for flights across India, featuring attributes like:</p>
+<ul dir="auto">
+<li>Date of Journey, Journey Day, Airline, Flight Code</li>
+<li>Class, Source, Departure, Total Stops, Arrival, Destination</li>
+<li>Duration in Hours, Days Left, and Fare</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Methodology</h2><a id="user-content-methodology" class="anchor" aria-label="Permalink: Methodology" href="#methodology"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li><strong>Data Preprocessing</strong>: Data cleaning, normalization, and type conversion for model readiness.</li>
+<li><strong>Exploratory Data Analysis (EDA)</strong>: Insights into pricing patterns and feature distributions.</li>
+<li><strong>Regression Modeling</strong>: Implementing various machine learning algorithms to predict flight prices.</li>
+<li><strong>Model Validation</strong>: Using evaluation metrics to refine and validate the predictive models.</li>
+</ol>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Model Comparison</h2><a id="user-content-model-comparison" class="anchor" aria-label="Permalink: Model Comparison" href="#model-comparison"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Model Type</th>
+<th>R² Score</th>
+<th>RMSE</th>
+<th>Observations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linear Regression</td>
+<td>20%</td>
+<td>15000</td>
+<td>Poor performance; high variance.</td>
+</tr>
+<tr>
+<td>Decision Tree</td>
+<td>87%</td>
+<td>7068</td>
+<td>Good fit but potential overfitting</td>
+</tr>
+<tr>
+<td>Random Forest</td>
+<td>87%</td>
+<td>7068</td>
+<td>Reduces overfitting; robust.</td>
+</tr>
+<tr>
+<td>Gradient Boosting</td>
+<td>89%</td>
+<td>6500</td>
+<td>Better than Random Forest.</td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>91%</td>
+<td>-</td>
+<td>Best model; optimal for dataset.</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Key Findings</h2><a id="user-content-key-findings" class="anchor" aria-label="Permalink: Key Findings" href="#key-findings"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li>XGBoost provided the best performance, capturing approximately 91% of data variability.</li>
+<li>Ensemble methods and boosting algorithms demonstrated high effectiveness in predicting dynamic flight pricing.</li>
+<li>Decision Trees and Random Forest showed robust performance but had concerns about overfitting, which were mitigated using ensemble techniques.</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Future Work</h2><a id="user-content-future-work" class="anchor" aria-label="Permalink: Future Work" href="#future-work"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><strong>Feature Expansion</strong>: Integrating real-time market trends and customer behavior metrics to enhance model accuracy.</li>
+<li><strong>Reinforcement Learning</strong>: Implementing models that adapt dynamically to changing market conditions.</li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">References</h2><a id="user-content-references" class="anchor" aria-label="Permalink: References" href="#references"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>Schosser, M. (2019). "Towards a maturity model for big data analytics in airline network planning."</li>
+<li>Zhao, Z., You, J., Gan, G., Li, X., &amp; Ding, J. (2021). "Civil airline fare prediction with a multi-attribute dual-stage attention mechanism."</li>
+</ol>
+<p dir="auto">Thank you for your interest in our project on dynamic pricing analysis for flight tickets.</p>
+</article></div>
+        <h2 id="visuals">Visuals</h2>
+        <p class="muted">Click any visual to expand.</p>
+        <div class="gallery" aria-label="Airfare visuals">
+          <a href="images/nb_plot_00.png"><img src="images/nb_plot_00.png" alt="Airfare visual" /></a>
+        </div>
+
+        <h2 id="notes">Notes</h2>
+        <ul>
+          <li>Features with strong influence: days‑to‑departure, total stops, airline, and duration.</li>
+          <li>Tree/boosting methods capture non‑linear interactions between route/time variables and price.</li>
+          <li>Future work: integrate real‑time signals and dynamic retraining.</li>
+        </ul>
+
+        <p class="links" style="margin-top:1rem">
+          <a class="btn" href="https://github.com/Sumukh-Bharadvaja/Airfare-Price-Prediction" target="_blank" rel="noopener">Code</a>
+        </p>
+      </article>
+    </main>
+    <footer class="site-footer"><div class="container"><p>© <span id="year"></span> Sumukh Bharadvaja Shivaram. All rights reserved.</p></div></footer>
+    <script src="../../assets/js/main.js"></script>
+  </body>
+</html>

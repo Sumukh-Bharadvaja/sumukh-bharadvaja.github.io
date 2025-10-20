@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pavement NDE QA (RAG) — Details</title>
+    <meta name="description" content="Pavement NDE QA (RAG) — project details and README." />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+    <link rel="icon" href="../../assets/img/PVT.png" type="image/png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="../../index.html">SUMUKH BHARADVAJA SHIVARAM</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="../../index.html#about">About</a>
+          <a href="../../index.html#featured">Academic Projects</a>
+          <a href="../../index.html#experience">Experience</a>
+          <a href="../../index.html#skills">Skills</a>
+          <a href="../../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container wiki">
+      <h1 class="title">Pavement NDE QA (RAG)</h1>
+      <article class="md">
+<div id="readme" class="md" data-path="readme.md"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 class="heading-element" dir="auto">Pavement NDE RAG QA System</h1><a id="user-content-pavement-nde-rag-qa-system" class="anchor" aria-label="Permalink: Pavement NDE RAG QA System" href="#pavement-nde-rag-qa-system"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Introduction</h2><a id="user-content-introduction" class="anchor" aria-label="Permalink: Introduction" href="#introduction"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">This project implements a Retrieval-Augmented Generation (RAG) pipeline to answer questions about <strong>32 non-destructive pavement evaluation (NDE) technologies</strong>. Unlike a simple FAQ bot, our system retrieves context-relevant chunks from technical PDFs, embeds them via SentenceTransformer, indexes with FAISS, and then generates precise answers with BERT, GPT-2, or Groq (Llama 3.1).</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">📖 Project Background</h2><a id="user-content--project-background" class="anchor" aria-label="Permalink: 📖 Project Background" href="#-project-background"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">Maintaining and evaluating pavement infrastructure relies on a range of NDE methods—ground‑penetrating radar, deflectometers, thermography, ultrasonic tomography, and more. Each technique produces specialized terminology and data. Traditional search or FAQ bots struggle with such domain specificity.</p>
+<p dir="auto">This RAG pipeline:</p>
+<ul dir="auto">
+<li><strong>Ingests</strong> dozens of PDF manuals and reports from FHWA’s InfoAvements portal.</li>
+<li><strong>Extracts</strong> text and images into small overlapping chunks for semantic coherence.</li>
+<li><strong>Embeds</strong> each chunk using state‑of‑the‑art SentenceTransformers.</li>
+<li><strong>Indexes</strong> embeddings in a FAISS vector store for lightning‑fast nearest‑neighbor retrieval.</li>
+<li><strong>Generates</strong> answers by conditioning a chosen QA model on the retrieved context.</li>
+</ul>
+<p dir="auto">By unifying retrieval and generation, our system achieves both high precision (via dense search) and fluent, explainable answers (via generative models).</p>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Architecture is given below
+<a target="_blank" rel="noopener noreferrer" href="images/a.png"><img src="images/a.png" alt="Architecture" style="max-width: 100%;"></a></h2><a id="user-content-architecture-is-given-below" class="anchor" aria-label="Permalink: Architecture is given below
+" href="#architecture-is-given-below"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">🎯 Objectives</h2><a id="user-content--objectives" class="anchor" aria-label="Permalink: 🎯 Objectives" href="#-objectives"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li><strong>Comprehensive Coverage</strong><br>
+Support all 32 documented pavement NDE technologies with chunk‑level context.</li>
+<li><strong>Flexible Inference</strong><br>
+Offer extractive QA (BERT), lightweight generative QA (GPT‑2), and high‑accuracy generative QA (Groq Llama 3.1).</li>
+<li><strong>Scalable Indexing</strong><br>
+Build a FAISS index that scales to thousands of chunks with constant‑time retrieval.</li>
+<li><strong>Rigorous Evaluation</strong><br>
+Collect human ratings on coherence, fluency, relevance, and overall quality; analyze by model and question type.</li>
+</ol>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Project Structure</h2><a id="user-content-project-structure" class="anchor" aria-label="Permalink: Project Structure" href="#project-structure"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="pavement-nde-rag-qa/
+├── data/
+│   ├── pavement_data.json            # Extracted chunk-level JSON
+│   ├── Questions_and_Model_Ratings.csv  # QA evaluation results
+│   └── images/
+│       ├── rag_pipeline.png          # RAG pipeline diagram
+│       ├── model_avg_scores.png      # Bar chart of average model scores
+│       └── question_type_heatmap.png # Heatmap of question-type performance
+├── extraction/
+│   └── Extraction_final.py           # PDF download &amp; text/image extraction
+├── models/
+│   ├── Bert_final.py                 # BERT-based QA model integration
+│   ├── GPT2.py                       # GPT-2-based QA model integration
+│   └── Groq.py                       # Groq (Llama 3.1)-based QA model integration
+├── EDA/
+│   ├── pavement_eda.ipynb            # Notebook for data exploration &amp; visualizations
+│   └── figures/                      # Generated plots and heatmaps
+├── retrieval/
+│   ├── embeddings.py                 # Compute &amp; store FAISS embeddings
+│   └── index.py                      # Build &amp; query FAISS index
+├── pipeline/
+│   └── rag_pipeline.py               # Main RAG orchestration script
+├── requirements.txt                  # Python dependencies
+└── README.md                         # This file"><pre class="notranslate"><code>pavement-nde-rag-qa/
+├── data/
+│   ├── pavement_data.json            # Extracted chunk-level JSON
+│   ├── Questions_and_Model_Ratings.csv  # QA evaluation results
+│   └── images/
+│       ├── rag_pipeline.png          # RAG pipeline diagram
+│       ├── model_avg_scores.png      # Bar chart of average model scores
+│       └── question_type_heatmap.png # Heatmap of question-type performance
+├── extraction/
+│   └── Extraction_final.py           # PDF download &amp; text/image extraction
+├── models/
+│   ├── Bert_final.py                 # BERT-based QA model integration
+│   ├── GPT2.py                       # GPT-2-based QA model integration
+│   └── Groq.py                       # Groq (Llama 3.1)-based QA model integration
+├── EDA/
+│   ├── pavement_eda.ipynb            # Notebook for data exploration &amp; visualizations
+│   └── figures/                      # Generated plots and heatmaps
+├── retrieval/
+│   ├── embeddings.py                 # Compute &amp; store FAISS embeddings
+│   └── index.py                      # Build &amp; query FAISS index
+├── pipeline/
+│   └── rag_pipeline.py               # Main RAG orchestration script
+├── requirements.txt                  # Python dependencies
+└── README.md                         # This file
+</code></pre></div>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Setup &amp; Installation</h2><a id="user-content-setup--installation" class="anchor" aria-label="Permalink: Setup &amp; Installation" href="#setup--installation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>
+<p dir="auto"><strong>Clone the repo</strong></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="git clone &lt;repo_url&gt;
+cd &lt;repo_folder&gt;"><pre>git clone <span class="pl-k">&lt;</span>repo_url<span class="pl-k">&gt;</span>
+<span class="pl-c1">cd</span> <span class="pl-k">&lt;</span>repo_folder<span class="pl-k">&gt;</span></pre></div>
+</li>
+<li>
+<p dir="auto"><strong>Create &amp; activate a virtualenv</strong></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="python -m venv .venv
+source .venv/bin/activate   # macOS/Linux
+.venv\Scripts\activate      # Windows"><pre>python -m venv .venv
+<span class="pl-c1">source</span> .venv/bin/activate   <span class="pl-c"><span class="pl-c">#</span> macOS/Linux</span>
+.venv<span class="pl-cce">\S</span>cripts<span class="pl-cce">\a</span>ctivate      <span class="pl-c"><span class="pl-c">#</span> Windows</span></pre></div>
+</li>
+<li>
+<p dir="auto"><strong>Install dependencies</strong></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="pip install -r requirements.txt"><pre>pip install -r requirements.txt</pre></div>
+</li>
+<li>
+<p dir="auto"><strong>Download spaCy model</strong></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="python -m spacy download en_core_web_sm"><pre>python -m spacy download en_core_web_sm</pre></div>
+</li>
+</ol>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">RAG Pipeline Overview</h2><a id="user-content-rag-pipeline-overview" class="anchor" aria-label="Permalink: RAG Pipeline Overview" href="#rag-pipeline-overview"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">1. Extraction</h3><a id="user-content-1-extraction" class="anchor" aria-label="Permalink: 1. Extraction" href="#1-extraction"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">PDFs are processed by <code>extraction/Extraction_final.py</code> into 300-character overlapping chunks with associated images, saved in <code>data/pavement_data.json</code>.</p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">2. Retrieval &amp; Generation</h3><a id="user-content-2-retrieval--generation" class="anchor" aria-label="Permalink: 2. Retrieval &amp; Generation" href="#2-retrieval--generation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><code>pipeline/rag_pipeline.py</code> accepts a user query, retrieves the top-K relevant chunks, and prompts the chosen QA model (<code>models/Bert_final.py</code>, <code>models/GPT2.py</code>, or <code>models/Groq.py</code>) to produce an answer.</p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Evaluation Results</h2><a id="user-content-evaluation-results" class="anchor" aria-label="Permalink: Evaluation Results" href="#evaluation-results"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Model Average Scores</h3><a id="user-content-model-average-scores" class="anchor" aria-label="Permalink: Model Average Scores" href="#model-average-scores"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Mean Overall Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BERT</strong></td>
+<td>5.75</td>
+</tr>
+<tr>
+<td><strong>GPT-2</strong></td>
+<td>5.46</td>
+</tr>
+<tr>
+<td><strong>Groq (Llama 3.1)</strong></td>
+<td>10.0</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="images/1.png"><img src="images/1.png" alt="Average ratings for models" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h3 class="heading-element" dir="auto">Question-Type Performance</h3><a id="user-content-question-type-performance" class="anchor" aria-label="Permalink: Question-Type Performance" href="#question-type-performance"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<markdown-accessiblity-table><table>
+<thead>
+<tr>
+<th>Question Type</th>
+<th>BERT</th>
+<th>GPT-2</th>
+<th>Groq (Llama 3.1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Who</td>
+<td>5.78</td>
+<td>5.78</td>
+<td>9.11</td>
+</tr>
+<tr>
+<td>What</td>
+<td>7.44</td>
+<td>5.44</td>
+<td>9.78</td>
+</tr>
+<tr>
+<td>When</td>
+<td>6.17</td>
+<td>5.50</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td>Where</td>
+<td>6.67</td>
+<td>5.50</td>
+<td>9.50</td>
+</tr>
+<tr>
+<td>Why</td>
+<td>4.00</td>
+<td>5.00</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td>How</td>
+<td>2.89</td>
+<td>4.56</td>
+<td>9.78</td>
+</tr>
+<tr>
+<td><strong>Overall</strong></td>
+<td>5.49</td>
+<td>5.30</td>
+<td>9.69</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="images/2.png"><img src="images/2.png" alt="Average ratings for questions" style="max-width: 100%;"></a></p>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">Usage</h2><a id="user-content-usage" class="anchor" aria-label="Permalink: Usage" href="#usage"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto" data-snippet-clipboard-copy-content="python pipeline/rag_pipeline.py \
+  --query &quot;What is the function of the Half-Cell Potential method?&quot; \
+  --model groq \
+  --top_k 5"><pre>python pipeline/rag_pipeline.py \
+  --query <span class="pl-s"><span class="pl-pds">"</span>What is the function of the Half-Cell Potential method?<span class="pl-pds">"</span></span> \
+  --model groq \
+  --top_k 5</pre></div>
+<ul dir="auto">
+<li><code>--model</code>: one of <code>bert</code>, <code>gpt2</code>, <code>groq</code></li>
+<li><code>--top_k</code>: number of chunks to retrieve (default: 5)</li>
+<li><code>--cache</code>: reuse existing FAISS index</li>
+</ul>
+<hr>
+<div class="markdown-heading" dir="auto"><h2 class="heading-element" dir="auto">License</h2><a id="user-content-license" class="anchor" aria-label="Permalink: License" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto">This project is licensed under the MIT License.</p>
+</article></div>
+      </article>
+      <p class="links" style="margin:1.25rem 0 2rem">
+        <a class="btn" href="https://github.com/Sumukh-Bharadvaja/Pavement_QA_System_RAG" target="_blank" rel="noopener">Code</a>
+      </p>
+    </main>
+    <footer class="site-footer"><div class="container"><p>© <span id="year"></span> Sumukh Bharadvaja Shivaram. All rights reserved.</p></div></footer>
+    <script src="../../assets/js/main.js"></script>
+  </body>
+</html>

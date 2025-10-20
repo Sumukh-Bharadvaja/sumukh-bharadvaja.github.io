@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amazon Analysis — Business Analytics</title>
+    <meta name="description" content="Amazon Analysis — Business Intelligence project with dashboards and insights." />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+    <link rel="icon" href="../../assets/img/amazon.png" type="image/png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="../../index.html">SUMUKH BHARADVAJA SHIVARAM</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <nav id="site-nav" class="site-nav">
+          <a href="../../index.html#featured">Academic Projects</a>
+          <a href="../../index.html#experience">Experience</a>
+          <a href="../../index.html#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container wiki">
+      <h1 class="title">Amazon Analysis — E‑commerce Insights</h1>
+      <p class="subtitle muted">Business Analytics | Performance drivers and customer patterns</p>
+      <div class="meta"><span class="tag">Business Analytics</span><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Excel</span></div>
+
+      <div class="md">
+        <h2 id="overview">Data Analysis / Reporting for an E‑commerce company</h2>
+        <h3>Project Overview</h3>
+        <p>This Business Intelligence project is based on the "E Commerce Sales" dataset ("Amazon Sales Report.csv"), published on the Kaggle platform, mentioning the original author Anil and <a href="https://www.kaggle.com/datasets/thedevastator/unlock-profits-with-e-commerce-sales-data" target="_blank" rel="noopener">source</a>. It contains details about orders and products. I analyzed the company's sales and revenue trends for the period 31.03.2022 and 29.06.2022. By building interactive dashboards, essential information can be revealed and used for possible subsequent business decisions.</p>
+
+        <h3>Tools :</h3>
+        <ul>
+          <li>Excel - Data preparation</li>
+          <li>SQL Server / SQL Server Management System - Normalisation &amp; Data analysis</li>
+          <li>Microsoft Power BI - reporting / dashboarding</li>
+        </ul>
+
+        <h3 id="data-preparation">Data preparation</h3>
+        <p>I decided to <strong><em>normalize</em></strong> the data to make it easier to add new records to the database and read the existing ones, without having duplicate or ambiguous elements.<br>
+        To respect first normal form (<strong><em>1NF</em></strong>), each attribute must have atomic values. I used <strong>Excel</strong> to split by delimiter the promotion-ids column.<br>
+        Furthermore, I created a new database and imported the dataset into the <strong>SQL Server Management System (SSMS)</strong>. To eliminate functional and transitive dependencies (<strong>2NF &amp; 3NF</strong>), I created new tables/entities and the corresponding primary and foreign keys.</p>
+
+        <p>The final ER Diagram looks like this:</p>
+        <p><img src="images/1.png" alt="ER diagram" /></p>
+
+        <h3 id="reporting">Reporting</h3>
+        <h4>Power BI</h4>
+        <p>For a better understanding, through the introductory report I have added a brief description of the E-commerce company, as well as of the data to be analyzed. The dataset includes details related to Amazon India's Q2 2022 sales. I considered it relevant to add financial statistics of the company at global level, taken from Amazon's quarterly reports. I used Power BI functions to add a table from web, similar to a web scraping technique. The chart is based on the global data, and the cards on the initial dataset.</p>
+        <p><img src="images/Dashboard.png" alt="Introductory Power BI dashboard" /></p>
+
+        <p>Similarly, the following reports will reveal information related to the products purchased, the locations where the orders were distributed, total sales, prices, and finally a sales prediction exercise for the next month.</p>
+        <p>Some of the dashboards are as follows</p>
+
+        <h3 id="locations-map">Locations Map</h3>
+        <p><img src="images/Dashboard_2.png" alt="Locations Map" /></p>
+        <p>This dashboard provides a geographic visualization of orders placed across India. It highlights the top cities and states by order volume, such as Bengaluru, Hyderabad, and Mumbai for cities, and Karnataka, Maharashtra, and Tamil Nadu for states. The map uses markers to represent order density, offering insights into regional performance and market penetration. Additional visualizations include treemaps for top cities and states, enabling a comparative analysis of order distribution.</p>
+
+        <h3 id="orders-table">Orders Table</h3>
+        <p><img src="images/Dashboard_3.png" alt="Orders Table" /></p>
+        <p>This dashboard provides a detailed transaction-level view (Drill-through analytics - ship_city - Bengaluru) of orders placed. It includes columns such as Order ID, Date, Shipping City, Shipping State, Fulfillment method, Status, Shipping Service Level, Sum of Amount, and B2B indicator. This table allows users to analyze individual orders, track shipment statuses, and understand fulfillment methods. It is particularly useful for auditing, customer service, and operational analysis.</p>
+
+        <h3 id="products-sales">Products &amp; Sales Details</h3>
+        <p><img src="images/Dashboard_4.png" alt="Products &amp; Sales Details" /></p>
+        <p>This dashboard provides a detailed analysis of product sales and order trends over time. Key metrics include the number of orders, money spent on products, and total quantity of products sold. Visualizations include:</p>
+        <ul>
+          <li>Monthly breakdown of orders and products.</li>
+          <li>B2B order analysis.</li>
+          <li>Product categories ranked by number of orders and sales amount.</li>
+          <li>Average sales per month and fulfillment method comparison.</li>
+          <li>Category slicers for filtering data.</li>
+          <li>Scatter plot showing categories by number of orders and average price.</li>
+        </ul>
+        <p>This dashboard is ideal for understanding product performance, identifying top-selling categories, and optimizing pricing strategies.</p>
+
+        <h3 id="prices-promotions">Prices &amp; Promotions</h3>
+        <p><img src="images/Dashboard_5.png" alt="Prices &amp; Promotions" /></p>
+        <p>This dashboard provides insights into pricing strategies and promotional impacts across different states and product categories. Key features include:</p>
+        <ul>
+          <li>Scatter plot showing the sum of amount, average price, and count of orders by shipping state.</li>
+          <li>Average price trends by month and category.</li>
+          <li>Analysis of promotional code impact on price, including linear regression trends.</li>
+          <li>Correlation between promotional codes and price trends.</li>
+        </ul>
+        <p>This dashboard is ideal for understanding price elasticity, evaluating promotional effectiveness, and optimizing pricing strategies for different regions and product categories.</p>
+
+        <h3 id="decomposition-tree">Decomposition Tree</h3>
+        <p><img src="images/Dashboard_6.png" alt="Decomposition Tree" /></p>
+        <p>This dashboard provides a hierarchical breakdown of sales data, enabling users to drill down into specific categories, states, and cities. Key features include:</p>
+        <ul>
+          <li>Visualization of sales amount split by fulfillment method (Amazon vs Merchant).</li>
+          <li>Detailed analysis of product categories such as Set, Kurta, and Western Dress.</li>
+          <li>State-level breakdown highlighting top-performing states like Maharashtra and Karnataka.</li>
+          <li>City-level insights showcasing cities such as Mumbai and Pune.</li>
+        </ul>
+        <p>This dashboard is ideal for understanding the distribution of sales across different dimensions, identifying regional trends, and optimizing fulfillment strategies.</p>
+
+        <h3 id="forecasting">Forecasting Dashboard</h3>
+        <p><img src="images/Dashboard_7.png" alt="Forecasting Dashboard" /></p>
+        <p>This dashboard provides insights into historical order trends and future predictions. Key features include:</p>
+        <ul>
+          <li>Visualization of actual order data over time, highlighting peaks and troughs in order volume.</li>
+          <li>Forecasted order data using predictive analytics, showcasing expected trends for the upcoming months.</li>
+          <li>Filters for product category, B2B orders, fulfillment method, city, and state to customize the analysis.</li>
+        </ul>
+        <p>This dashboard is ideal for understanding historical performance, anticipating future demand, and making data-driven decisions for inventory and resource planning.</p>
+
+        <h3 id="conclusions">Conclusions / Results</h3>
+        <p>Through the project, the best-selling products within the company can be identified, as well as the differences between them, the users being able to decide the possible evolution of each product category, improvement or promotion. The most successful categories within the company are: set, kurta and western dress.</p>
+        <p>The state with the most sales is Maharashtra with 20.8 K orders. Analyzes of sales by location can be useful for making strategic decisions about expanding markets, allocating resources, or developing geographically tailored marketing strategies.</p>
+        <p>Finally, the project can demonstrate the benefits of using Business Intelligence in the decision-making process in a company. Using the Power BI platform enabled data visualization and analysis in an interactive and efficient way.</p>
+
+        <p class="links" style="margin-top:1rem">
+          <a class="btn" href="https://github.com/Sumukh-Bharadvaja/AmazonAnalysis" target="_blank" rel="noopener">Code</a>
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div class="container"><p>© <span id="year"></span> Sumukh Bharadvaja Shivaram. All rights reserved.</p></div></footer>
+    <script src="../../assets/js/main.js"></script>
+  </body>
+</html>
